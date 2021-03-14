@@ -1,0 +1,1 @@
+Powershell.exe Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope LocalMachine
