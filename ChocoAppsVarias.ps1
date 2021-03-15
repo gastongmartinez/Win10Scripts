@@ -29,6 +29,7 @@ $Applist = @(
     "coretemp"
     "libreoffice-fresh"
     "shellcheck"
+    "font-awesome-font"
 )
 
 ForEach ($App in $Applist) {
