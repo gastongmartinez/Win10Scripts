@@ -1,1 +1,1 @@
-Powershell.exe Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope LocalMachine
+Powershell.exe Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope CurrentUser -Force
