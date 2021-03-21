@@ -30,6 +30,10 @@ $Applist = @(
     "libreoffice-fresh"
     "shellcheck"
     "font-awesome-font"
+    "alacritty"
+    "joplin"
+    "nodejs"
+    "virtualbox"
 )
 
 ForEach ($App in $Applist) {
