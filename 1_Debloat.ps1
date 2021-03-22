@@ -1,4 +1,4 @@
-﻿Function Debloat {
+﻿Function RemoveAppsCapabilities {
     # Comentar para omitir
     $Applist = @(
         "Microsoft.BingNews"
@@ -69,8 +69,8 @@
     }
 
     Get-Content -Path $Logfile
-    
 }
+
 
 Function DesinstalarOneDrive {
     Write-Output "Desinstalando OneDrive..."
@@ -96,5 +96,46 @@ Function DesinstalarOneDrive {
 }
 
 # Comentar para omitir
-Debloat
+$Bloat = @(
+    "WindowsWelcomeExperience",
+    "WindowsTips",
+    "SettingsSuggestedContent",
+    "WhatsNewInWindows",
+    "BingSearch"
+)
+Function WindowsWelcomeExperience {
+    New-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager -Name SubscribedContent-310093Enabled -PropertyType DWord -Value 0 -Force
+}
+
+Function WindowsTips {
+    New-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager -Name SubscribedContent-338389Enabled -PropertyType DWord -Value 0 -Force        
+}
+
+Function SettingsSuggestedContent {
+    New-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager -Name SubscribedContent-338393Enabled -PropertyType DWord -Value 0 -Force
+    New-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager -Name SubscribedContent-353694Enabled -PropertyType DWord -Value 0 -Force
+    New-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager -Name SubscribedContent-353696Enabled -PropertyType DWord -Value 0 -Force
+}
+
+Function WhatsNewInWindows {
+    if (-not (Test-Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\UserProfileEngagement)) {
+        New-Item -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\UserProfileEngagement -Force
+    }
+    New-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\UserProfileEngagement -Name ScoobeSystemSettingEnabled -PropertyType DWord -Value 0 -Force
+}
+
+Function BingSearch {
+    if (-not (Test-Path HKCU:\SOFTWARE\Policies\Microsoft\Windows\Explorer)) {
+        New-Item -Path HKCU:\SOFTWARE\Policies\Microsoft\Windows\Explorer -Force
+    }
+    New-ItemProperty -Path HKCU:\SOFTWARE\Policies\Microsoft\Windows\Explorer -Name DisableSearchBoxSuggestions -PropertyType DWord -Value 1 -Force
+}
+
+
+# Comentar para omitir
+RemoveAppsCapabilities
 DesinstalarOneDrive
+
+# Call the desired Bloat functions
+$Bloat | ForEach-Object { Invoke-Expression $_ }
+
