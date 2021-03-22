@@ -18,7 +18,7 @@ $Applist = @(
     "glaryutilities-free"
     "calibre"
     "neovim"
-    "emacs-full"
+    #"emacs-full"
     "etcher"
     "codeblocks"
     "filezilla"
