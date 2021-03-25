@@ -47,11 +47,20 @@ $Applist = @(
     "virtualbox"
 )
 
+# Instalacion de PowerISO directa hasta que validen la ultima actualizacion en choco
+$PISO = "$PSScriptRoot\PowerISO7-x64.exe"
+Invoke-WebRequest -Uri "https://www.poweriso.net/PowerISO7-x64.exe" -OutFile $PISO
+$Proc = Start-Process $PISO -ArgumentList "/S" -PassThru
+Wait-Process -Id $Proc.Id -Timeout 30
+
 ForEach ($App in $Applist) {
     $App = $App.TrimEnd()
     Write-Output "Instalando $App"
     choco install $App -y
 }
+
+Stop-Process -Name "brave" -ErrorAction SilentlyContinue
+Stop-Process -Name "flux" -ErrorAction SilentlyContinue
 
 $SN = Read-Host -Prompt "Se recomienda reiniciar el equipo, desea hacerlo ahora? (S/N): "
 if ( $SN -eq "S" ) {
