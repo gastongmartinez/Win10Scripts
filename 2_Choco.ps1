@@ -5,7 +5,7 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 Write-Output "Instalando Paquetes Base"
 # Comentar para omitir
 $Applist = @(
-    "poweriso"
+    #"poweriso"
     "vscode"
     "firefox"
     "openjdk"
@@ -22,7 +22,7 @@ $Applist = @(
     "blender"
     "inkscape"
     "gimp"
-    "freecad"
+    #"freecad"
     "vlc"
     "mpv" 
     "winscp"
@@ -51,6 +51,11 @@ ForEach ($App in $Applist) {
     $App = $App.TrimEnd()
     Write-Output "Instalando $App"
     choco install $App -y
+}
+
+$SN = Read-Host -Prompt "Se recomienda reiniciar el equipo, desea hacerlo ahora? (S/N): "
+if ( $SN -eq "S" ) {
+    Restart-Computer
 }
 
 
