@@ -1,5 +1,12 @@
 ﻿Import-Module -Name $PSScriptRoot\Debloat.psm1 -Force
 
+$SN = Read-Host -Prompt "Al finalizar se reiniciara el equipo, desea continuar? (S/N)"
+if ( $SN -eq "N" ) {
+    exit
+}
+
+UnpinTaskbarEdgeStore
+
 # Comentar para omitir
 $MSApss = @(
     "Microsoft.BingNews"
@@ -32,6 +39,8 @@ $MSApss = @(
     "Microsoft.YourPhone"
     "Microsoft.ZuneMusic"
     "Microsoft.ZuneVideo"
+    "SpotifyAB.SpotifyMusic"
+    "Microsoft.SkypeApp"
 )
 
 RemoveApps $MSApss
@@ -44,7 +53,6 @@ WindowsTips
 SettingsSuggestedContent
 WhatsNewInWindows
 BingSearch
-UnpinTaskbarEdgeStore
 
 # Privacidad
 DisableTelemetry
@@ -76,4 +84,4 @@ AppSuggestions
 TaskManagerWindow
 
 
-Write-Output "Reinicie el equipo"
+Restart-Computer

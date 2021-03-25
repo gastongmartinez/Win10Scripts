@@ -115,7 +115,7 @@ Function BingSearch {
     New-ItemProperty -Path HKCU:\SOFTWARE\Policies\Microsoft\Windows\Explorer -Name DisableSearchBoxSuggestions -PropertyType DWord -Value 1 -Force
 }
 
-Function UnpinTaskbarEdgeStore {
+function UnpinTaskbarEdgeStore {
     $Signature = @{
         Namespace        = "WinAPI"
         Name             = "GetStr"
@@ -149,6 +149,7 @@ Function UnpinTaskbarEdgeStore {
     }
     else {
         Remove-Item -Path "$env:AppData\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar\Microsoft Edge.lnk" -ErrorAction Ignore
+        Remove-Item -Path "$env:AppData\Microsoft\Internet Explorer\Quick Launch\Microsoft Edge.lnk" -ErrorAction Ignore
         $VerbExists | ForEach-Object -Process { $_.DoIt() }
     }
 
