@@ -1,8 +1,8 @@
 Write-Output "Instalando Chocolatey"
 
-Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 
-Write-Output "Instalando Paquetes Base"
+Write-Output "Instalando Paquetes"
 # Comentar para omitir
 $Applist = @(
     #"poweriso"
@@ -11,6 +11,7 @@ $Applist = @(
     "openjdk"
     "powertoys"
     "git"
+    "totalcommander"
     "python"
     "brave"
     "googlechrome"
@@ -45,6 +46,10 @@ $Applist = @(
     "joplin"
     "nodejs"
     "virtualbox"
+    #"winrar"
+    "pycharm-community"
+    "intellijidea-community"
+    "clementine"
 )
 
 # Instalacion de PowerISO directa hasta que validen la ultima actualizacion en choco
