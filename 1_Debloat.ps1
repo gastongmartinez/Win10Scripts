@@ -69,9 +69,6 @@ DisableDiagTrack
 # Configuraciones Varias
 HideTaskbarSearch
 HideTaskView
-ShowUserFolderOnDesktop
-ShowThisPCOnDesktop
-ShowNetworkOnDesktop
 UnpinStartMenuTiles
 DisableShareAcrossDevices
 PowerManagementScheme
@@ -82,6 +79,7 @@ ControlPanelView
 RecentlyAddedApps
 AppSuggestions
 TaskManagerWindow
+HideRecycleBinOnDesktop
 
 
 Restart-Computer
