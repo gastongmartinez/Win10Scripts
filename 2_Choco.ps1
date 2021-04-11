@@ -5,10 +5,10 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 Write-Output "Instalando Paquetes"
 # Comentar para omitir
 $Applist = @(
-    #"poweriso"
+    "poweriso"
     "vscode"
     "firefox"
-    "openjdk"
+    "jdk8"
     "powertoys"
     "git"
     "totalcommander"
@@ -23,14 +23,15 @@ $Applist = @(
     "blender"
     "inkscape"
     "gimp"
-    #"freecad"
+    # "freecad"
     "vlc"
+    "clementine"
     "mpv" 
     "winscp"
     "glaryutilities-free"
     "calibre"
     "neovim"
-    #"emacs-full"
+    # "emacs-full"
     "etcher"
     "codeblocks"
     "filezilla"
@@ -46,17 +47,16 @@ $Applist = @(
     "joplin"
     "nodejs"
     "virtualbox"
-    #"winrar"
+    "winrar"
     "pycharm-community"
     "intellijidea-community"
-    "clementine"
 )
 
 # Instalacion de PowerISO directa hasta que validen la ultima actualizacion en choco
-$PISO = "$PSScriptRoot\PowerISO7-x64.exe"
-Invoke-WebRequest -Uri "https://www.poweriso.net/PowerISO7-x64.exe" -OutFile $PISO
-$Proc = Start-Process $PISO -ArgumentList "/S" -PassThru
-Wait-Process -Id $Proc.Id -Timeout 30
+# $PISO = "$PSScriptRoot\PowerISO7-x64.exe"
+# Invoke-WebRequest -Uri "https://www.poweriso.net/PowerISO7-x64.exe" -OutFile $PISO
+# $Proc = Start-Process $PISO -ArgumentList "/S" -PassThru
+# Wait-Process -Id $Proc.Id -Timeout 30
 
 ForEach ($App in $Applist) {
     $App = $App.TrimEnd()
