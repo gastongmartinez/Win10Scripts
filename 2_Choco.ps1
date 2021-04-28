@@ -23,7 +23,7 @@ $Applist = @(
     "blender"
     "inkscape"
     "gimp"
-    # "freecad"
+    "freecad"
     "vlc"
     "clementine"
     "mpv" 
@@ -31,7 +31,7 @@ $Applist = @(
     "glaryutilities-free"
     "calibre"
     "neovim"
-    # "emacs-full"
+    "emacs"
     "etcher"
     "codeblocks"
     "filezilla"
@@ -50,6 +50,9 @@ $Applist = @(
     "winrar"
     "pycharm-community"
     "intellijidea-community"
+    "ripgrep"
+    "fd"
+    "llvm"
 )
 
 # Instalacion de PowerISO directa hasta que validen la ultima actualizacion en choco
