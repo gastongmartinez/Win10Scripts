@@ -22,8 +22,8 @@ Move-Item -Path "$PSScriptRoot\LayoutModification.xml" -Destination "C:\Users\De
 Stop-Process -ProcessName explorer
 
 # NeoVim
-git clone https://github.com/gastongmartinez/NeoVim "$env:UserProfile\Documents\NeoVim"
-Invoke-Expression -Command "$env:UserProfile\Documents\NeoVim\install.ps1"
+# git clone https://github.com/gastongmartinez/NeoVim "$env:UserProfile\Documents\NeoVim"
+# Invoke-Expression -Command "$env:UserProfile\Documents\NeoVim\install.ps1"
 
 # Reinicio
 $SN = Read-Host -Prompt "Se recomienda reiniciar el equipo, desea hacerlo ahora? (S/N): "

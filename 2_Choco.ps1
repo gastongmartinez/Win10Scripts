@@ -11,7 +11,7 @@ $Applist = @(
     "jdk8"
     "powertoys"
     "git"
-    "totalcommander"
+    #"totalcommander"
     "python"
     "brave"
     "googlechrome"
