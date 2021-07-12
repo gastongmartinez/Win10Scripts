@@ -5,7 +5,7 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 Write-Output "Instalando Paquetes"
 # Comentar para omitir
 $Applist = @(
-    "poweriso"
+    #"poweriso"
     "vscode"
     "firefox"
     "jdk8"
@@ -23,7 +23,7 @@ $Applist = @(
     "blender"
     "inkscape"
     "gimp"
-    "freecad"
+    #"freecad"
     "vlc"
     #"clementine"
     "mpv" 
