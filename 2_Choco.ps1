@@ -54,6 +54,7 @@ $Applist = @(
     "ripgrep"
     "fd"
     "llvm"
+    "anaconda3"
 )
 
 # Instalacion de PowerISO directa hasta que validen la ultima actualizacion en choco
