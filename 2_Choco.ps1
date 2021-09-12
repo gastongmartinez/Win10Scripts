@@ -55,6 +55,7 @@ $Applist = @(
     "fd"
     "llvm"
     "anaconda3"
+    "ninja"
 )
 
 # Instalacion de PowerISO directa hasta que validen la ultima actualizacion en choco
