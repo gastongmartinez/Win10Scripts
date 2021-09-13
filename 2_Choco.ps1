@@ -47,6 +47,7 @@ $Applist = @(
     "alacritty"
     "joplin"
     "nodejs"
+    "yarn"
     "virtualbox"
     "winrar"
     "pycharm-community"
