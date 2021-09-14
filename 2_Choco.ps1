@@ -42,6 +42,7 @@ $Applist = @(
     "handbrake"
     "coretemp"
     "libreoffice-fresh"
+    "miktex"
     "shellcheck"
     "font-awesome-font"
     "alacritty"
